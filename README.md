@@ -21,7 +21,7 @@ Esta API é destinada a uma rede social de fotos, permitindo que os usuários fa
 
 * NestJS: Framework Node.js para desenvolvimento de API com TypeScript.
 * TypeORM: ORM para interagir com o banco de dados PostgreSQL.
-* Supabase: Plataforma de backend como serviço para armazenamento de imagens e autenticação de usuários
+* Supabase: Plataforma de backend como serviço para o armazenamento de imagens.
 
 ## Estrutura do Projeto
 
