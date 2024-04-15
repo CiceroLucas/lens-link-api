@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="" target="blank"><img src="https://zavxbzloccalzprhjzkt.supabase.co/storage/v1/object/public/lenslink/logo-lens-link.png" width="200" alt="Nest Logo" /></a>
+  <a href="" target="blank"><img src="" width="200" alt="Lens Link Logo" /></a>
 </p>
 
 
