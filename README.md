@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="" target="blank"><img src="https://zavxbzloccalzprhjzkt.supabase.co/storage/v1/object/public/lenslink/Logo.png" width="200" alt="Lens Link Logo" /></a>
+  <a href="" target="blank"><img src="https://zavxbzloccalzprhjzkt.supabase.co/storage/v1/object/public/lenslink/Logo-LensLink.png" width="200" alt="Lens Link Logo" /></a>
 </p>
 
 
@@ -15,7 +15,7 @@ Esta API é destinada a uma rede social de fotos, permitindo que os usuários fa
 * Postagens de Fotos: Funcionalidades para criar, visualizar, editar e excluir postagens de fotos.
 * Feed de Usuários: Capacidade de visualizar o feed de postagens de todos os usuários.
 * Interações Sociais: Curtir e comentar postagens de outros usuários.
-* Pesquisa de Usuários: Recursos para pesquisar usuários por nome.
+* Pesquisa de Usuários: Recurso para pesquisar usuários por nome.
 
 ## Tecnologias Utilizadas
 
