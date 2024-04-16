@@ -3,7 +3,7 @@
 </p>
 
 
-
+[![Generic badge](https://img.shields.io/badge/STATUS-EM_DESENVOLVIMENTO-<COLOR>.svg)](https://shields.io/)
 
 ## Descrição
 
