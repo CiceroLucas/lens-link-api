@@ -26,6 +26,11 @@ export class PostController {
     return this.postService.findAll();
   }
 
+  @Get(':id')
+  async findById(@Param('id') id: number) {
+    return this.postService.findById(id);
+  }
+
   @Post()
   @UseInterceptors(FileInterceptor('file'))
   async create(

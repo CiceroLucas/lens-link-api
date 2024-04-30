@@ -32,8 +32,8 @@ export class PostService {
   async findAll() {
     return this.postsRepository
       .find({
-        relations: ['user'],
-        select: ['image', 'description', 'createdAt', 'likes'],
+        relations: ['user', 'comments', 'comments.user'],
+        select: ['id', 'image', 'description', 'createdAt', 'likes'],
       })
       .then((posts) =>
         posts.map((post) => ({
@@ -44,8 +44,41 @@ export class PostService {
             lastName: post.user.lastName,
             userId: post.user.id,
           },
+
+          comments: post.comments.map((comment) => {
+            if (!comment.user) {
+              return {
+                id: comment.id,
+                content: comment.content,
+                createdAt: comment.createdAt,
+                user: null,
+              };
+            }
+
+            return {
+              id: comment.id,
+              content: comment.content,
+              createdAt: comment.createdAt,
+              user: {
+                profilePic: comment.user.profilePic,
+                firstName: comment.user.firstName,
+                lastName: comment.user.lastName,
+              },
+            };
+          }),
         })),
       );
+  }
+
+  async findById(id: number) {
+    const post = await this.postsRepository.findOne({
+      where: { id },
+      select: {
+        id: true,
+      },
+    });
+
+    return post;
   }
 
   async update(id: number, data: updatePostDto, user: User) {
@@ -90,6 +123,7 @@ export class PostService {
     if (!post) {
       throw new NotFoundException('Post not found');
     }
+
     return post;
   }
 }

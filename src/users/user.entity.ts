@@ -1,4 +1,5 @@
 import { Post } from 'src/post/post.entity';
+import { Comment } from 'src/comment/comment.entity';
 import {
   Column,
   CreateDateColumn,
@@ -33,6 +34,9 @@ export class User {
   @OneToMany(() => Post, (post) => post.user, { eager: true })
   @JoinColumn([{ name: 'postId', referencedColumnName: 'id' }])
   posts: Post[];
+
+  @OneToMany(() => Comment, (comment) => comment.user)
+  comments: Comment[];
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: string;

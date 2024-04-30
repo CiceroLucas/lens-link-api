@@ -1,4 +1,5 @@
 import { User } from 'src/users/user.entity';
+import { Comment } from 'src/comment/comment.entity';
 import {
   Column,
   CreateDateColumn,
@@ -6,6 +7,7 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -23,6 +25,9 @@ export class Post {
 
   @Column({ default: 0 })
   likes: number;
+
+  @OneToMany(() => Comment, (comment) => comment.post)
+  comments: Comment[];
 
   @ManyToOne(() => User, (user) => user.posts, { eager: false })
   @JoinColumn([{ name: 'userEmail', referencedColumnName: 'email' }])

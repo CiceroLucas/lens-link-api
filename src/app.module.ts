@@ -9,6 +9,7 @@ import { AppService } from './app.service';
 import { AppController } from './app.controller';
 import { PostModule } from './post/post.module';
 import { SupabaseService } from './supabase/supabase.service';
+import { CommentModule } from './comment/comment.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -25,6 +26,7 @@ import { SupabaseService } from './supabase/supabase.service';
     UsersModule,
     PostModule,
     AuthModule,
+    CommentModule,
   ],
   controllers: [AppController],
   providers: [
