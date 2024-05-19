@@ -35,10 +35,10 @@ export class UsersController {
     return this.usersService.store(body);
   }
 
-  // @Get(':id')
-  // findById(@Param('id', new ParseUUIDPipe()) id: string) {
-  //   return this.usersService.findOneById(id);
-  // }
+  @Get(':id/profile')
+  findById(@Param('id', new ParseUUIDPipe()) id: string) {
+    return this.usersService.findOneById(id);
+  }
 
   @Get('search')
   findByFirstName(@Query('name') firstName: string) {

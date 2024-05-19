@@ -35,15 +35,15 @@ export class UsersService {
     return user;
   }
 
-  // async findOneById(id: string) {
-  //   const user = await this.usersRepository.findOneBy({ id });
-  //   if (!user) {
-  //     throw new NotFoundException('Could not find the user');
-  //   }
-  //   const { password, createdAt, updatedAt, deletedAt, ...userWithoutPass } =
-  //     user;
-  //   return userWithoutPass;
-  // }
+  async findOneById(id: string) {
+    const user = await this.usersRepository.findOneBy({ id });
+    if (!user) {
+      throw new NotFoundException('Could not find the user');
+    }
+    const { password, createdAt, updatedAt, deletedAt, ...userWithoutPass } =
+      user;
+    return userWithoutPass;
+  }
 
   async findByFirstName(firstName: string): Promise<User[]> {
     return await this.usersRepository.find({
