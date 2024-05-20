@@ -8,6 +8,12 @@ async function bootstrap() {
     new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }),
   );
   app.setGlobalPrefix('api');
+  app.enableCors({
+    origin: ['https://lens-link-api.onrender.com'],
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Content-Type, Accept',
+    credentials: true,
+  });
 
   await app.listen(8000);
 }
