@@ -15,18 +15,23 @@ export class SupabaseService {
       },
     });
 
+    const timestamp = new Date().toISOString().replace(/[-:.]/g, '');
+    const fileExtension = file.originalname.split('.').pop();
+    const fileName = `${timestamp}.${fileExtension}`;
+
     const { error } = await supabase.storage
       .from(bucket)
-      .upload(file.originalname, file.buffer, {
+      .upload(fileName, file.buffer, {
         upsert: false,
         contentType: 'image/png',
       });
 
-    const res = supabase.storage.from(bucket).getPublicUrl(file.originalname);
-
     if (error) {
       throw new Error(error.message);
     }
+
+    const res = supabase.storage.from(bucket).getPublicUrl(fileName);
+
     return res.data.publicUrl;
   }
 }
