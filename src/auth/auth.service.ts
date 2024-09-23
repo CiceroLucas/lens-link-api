@@ -24,11 +24,6 @@ export class AuthService {
 
     const jwtToken = this.jwtService.sign(payload);
     return {
-      sub: user.id,
-      profilePic: user.profilePic,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      email: user.email,
       access_token: jwtToken,
     };
   }
