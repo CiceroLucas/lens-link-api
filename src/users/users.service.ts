@@ -52,6 +52,19 @@ export class UsersService {
     });
   }
 
+  async findPostsByUserId(userId: string) {
+    const user = await this.usersRepository.findOne({
+      where: { id: userId },
+      relations: ['posts'],
+    });
+
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    return user.posts;
+  }
+
   async store(data: CreateUserDto) {
     const salt = await bcrypt.genSalt();
     const hashPassword = await bcrypt.hash(data.password, salt);

@@ -45,6 +45,11 @@ export class UsersController {
     return this.usersService.findByFirstName(firstName);
   }
 
+  @Get(':id/posts')
+  async findPostsByUser(@Param('id') id: string) {
+    return await this.usersService.findPostsByUserId(id);
+  }
+
   @Patch(':id')
   update(
     @Param('id', new ParseUUIDPipe()) id: string,
